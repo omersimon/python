@@ -19,7 +19,7 @@ player_name = input("please Enter your name: ")
 p1 = playerClass.player(player_name)
 p1.hello()
 while True:
-    try:
+    try: # as we went over it in lesson3, developing by excpetions is like walking on thin ice. make this better, dont check if its not int by waiting the code to fail, use str.isdigit() instead
         game_number = int(input("Please choose a game to play:\n\n"
                                 "1. Memory Game - a sequence of numbers will appear for 1 second and you have toguess it back\n"
                                 "2. Guess Game - guess a number and see if you chose like the computer\n"

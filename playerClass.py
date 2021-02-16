@@ -1,4 +1,4 @@
-
+# no need for classes here as well.. whats the value they give you over just using code?
 class player:
 
     def __init__(self, name):
