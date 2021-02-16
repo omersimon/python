@@ -1,7 +1,9 @@
 import os
 import time
 
-
+# i think classes is not a good choice for the 1st part of the project, since it has no added value at all. 
+# the classes should be implemented in the 2nd part, where you need to implement the logic of each game.
+# it should be as followes: Game class, a generic and abstract class (use abc module), and each game class will inherit from the abstract class
 class games:
     def __init__(self, game, difficulty):
         self.game = game
