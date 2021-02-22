@@ -7,6 +7,11 @@ class memoryGame(abstractGame.AbstractGame):
     def __init__(self, diffuclty):
         self.diffuclty = diffuclty
 
+
+    def get_guess_from_user(self):
+      pass
+
+
     def playGame(self):
         randomlist = []
         for i in range(0, int(self.diffuclty)):
@@ -20,9 +25,11 @@ class memoryGame(abstractGame.AbstractGame):
 
     def getListFromUser(self):
         userList = []
+        counter = 1
         for i in range(int(self.diffuclty)):
-            userInput=int(input("Please guess  "))
+            userInput=int(input("Please guess number "+str(counter)+" "))
             userList.append(userInput)
+            counter +=1
         return userList
 
 

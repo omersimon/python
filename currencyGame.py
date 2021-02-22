@@ -9,7 +9,7 @@ class currencyGame(abstractGame.AbstractGame):
 
     def get_guess_from_user(self,secretNumber):
        print (f"please guess {secretNumber} to shekel\n")
-       return int(input("Please guess a number between 1 -" + self.diffuclty+": "))
+       return int(input("please guees how much in SHEKEL "))
 
 
     def playGame(self):
