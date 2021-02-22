@@ -2,7 +2,10 @@
 
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-import playerClass, gamesClass
+import playerClass, abstractGame
+from currencyGame import currencyGame
+from guessGame import guessGame
+from memoryGame import memoryGame
 
 
 def print_hi(name):
@@ -16,36 +19,45 @@ if __name__ == '__main__':
 
 player_name = input("please Enter your name: ")
 
-p1 = playerClass.player(player_name)
-p1.hello()
+print(f"Hello {player_name} and welcome to the World of Games (WoG).Here you can find many cool games to play.")
+
 while True:
-    try: # as we went over it in lesson3, developing by excpetions is like walking on thin ice. make this better, dont check if its not int by waiting the code to fail, use str.isdigit() instead
-        game_number = int(input("Please choose a game to play:\n\n"
-                                "1. Memory Game - a sequence of numbers will appear for 1 second and you have toguess it back\n"
-                                "2. Guess Game - guess a number and see if you chose like the computer\n"
-                                "3. Currency Roulette - try and guess the value of a random amount of USD in ILS\n"))
-        if game_number < 0 or game_number > 3:
-            print("out of range")
-            continue
-        else:
-            print(" great choose ")
-            break
-    except ValueError:
-        print("That's not an int!")
+
+    game_number = input("Please choose a game to play:\n\n"
+                        "1. Memory Game - a sequence of numbers will appear for 1 second and you have toguess it back\n"
+                        "2. Guess Game - guess a number and see if you chose like the computer\n"
+                        "3. Currency Roulette - try and guess the value of a random amount of USD in ILS\n")
+    if game_number.isnumeric() == False:
+        print("not integer")
+        continue
+
+    elif int(game_number) < 0 or int(game_number) > 3:
+        print("out of range")
+        continue
+
+    break
+
 while True:
-    try:
-     difficulty = int(input("please enter difficult between 1-5 : "))
-     if difficulty < 0 or difficulty > 5:
-         print("out of range")
-         continue
-     else:
-         print(" great choose ")
-         break
-    except ValueError:
-     print("That's not an int!")
+    difficulty = input("please enter difficult between 1-5 : ")
+    if difficulty.isnumeric() == False:
+        print("not integer")
+        continue
+
+    elif int(difficulty) < 0 or int(difficulty) > 5:
+        print("out of range")
+        continue
+
+    else:
+        print(" great choose ")
+        break
+
+if int(game_number) == 1:
+    game = memoryGame(difficulty)
+elif int(game_number) == 2:
+    game = guessGame(difficulty)
+elif int(game_number) == 3:
+    game = currencyGame(difficulty)
 
 
-game = gamesClass.games(game_number, difficulty)
-game.run_game()
+game.playGame()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
